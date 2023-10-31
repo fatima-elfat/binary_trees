@@ -31,16 +31,16 @@ int bt_is_perfect(const binary_tree_t *tree, int *pd)
 	if (tree)
 	{
 		if (!tree->left && !tree->right)
+		{
+			/** calculate and compare the dept of previous*/
+			d = binary_tree_depth(tree);
+			if (*pd == -1 || *pd == d)
 			{
-				/** calculate and compare the dept of previous*/
-				d = binary_tree_depth(tree);
-				if (*pd == -1 || *pd == d)
-				{
-					*pd = d;
-				}
-				else
-					return (0);
+				*pd = d;
 			}
+			else
+				return (0);
+		}
 		else if (!tree->left)
 			return (0);
 		else if (!tree->right)
@@ -61,5 +61,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	int pd = -1;
 
-	return(bt_is_perfect(tree, &pd));
+	if (tree == NULL)
+		return (0);
+	return (bt_is_perfect(tree, &pd));
 }
