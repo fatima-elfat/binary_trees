@@ -26,7 +26,7 @@ size_t binary_tree_depth(const binary_tree_t *tree)
 */
 int bt_is_perfect(const binary_tree_t *tree, int *pd)
 {
-	int d;
+	int d, a, b;
 
 	if (tree)
 	{
@@ -34,11 +34,9 @@ int bt_is_perfect(const binary_tree_t *tree, int *pd)
 			{
 				/** calculate and compare the dept of previous*/
 				d = binary_tree_depth(tree);
-				if (*pd == -1)
+				if (*pd == -1 || *pd == d)
 				{
-					printf("here\n");
 					*pd = d;
-					printf("%d %d\n", *pd, d);
 				}
 				else
 					return (0);
@@ -47,11 +45,10 @@ int bt_is_perfect(const binary_tree_t *tree, int *pd)
 			return (0);
 		else if (!tree->right)
 			return (0);
-		else
-		{
-			bt_is_perfect(tree->left, *pd);
-			bt_is_perfect(tree->right, *pd);
-		}
+		a = bt_is_perfect(tree->left, pd);
+		b = bt_is_perfect(tree->right, pd);
+		if (!a || !b)
+			return (0);
 	}
 	return (1);
 }
@@ -62,11 +59,7 @@ int bt_is_perfect(const binary_tree_t *tree, int *pd)
 */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int *pd;
+	int pd = -1;
 
-	pd = malloc(sizeof(int));
-	if (!pd)
-		return (NULL);
-	*pd = -1;
-	return(bt_is_perfect(tree, *pd));
+	return(bt_is_perfect(tree, &pd));
 }
