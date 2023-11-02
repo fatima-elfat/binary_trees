@@ -52,8 +52,10 @@ void bt_levelorder(const binary_tree_t *tree, void (*func)(int), size_t level)
         return;
     if (!level)
         func(tree->n);
-    else if (level > 1) {
-        bt_levelorder(tree->left, func, level - 1);
-        bt_levelorder(tree->right, func, level - 1);
+    else if (level > 0)
+	{
+		level--;
+        bt_levelorder(tree->left, func, level);
+        bt_levelorder(tree->right, func, level);
     }
 }
