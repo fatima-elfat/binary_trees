@@ -8,18 +8,14 @@
 */
 bst_t *array_to_bst(int *array, size_t size)
 {
-	size_t i, j;
+	size_t i;
 	bst_t *bt_new;
 
 	if (!array)
 		return (NULL);
 	for (i = 0; i < size; i++)
 	{
-		for (j = 0; j < i; j++)
-			if (array[i] == array[j])
-				break;
-		if (i == j)
-			bst_insert(&bt_new, array[i]);
+		bst_insert(&bt_new, array[i]);
 	}
 	return (bt_new);
 }
