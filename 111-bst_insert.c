@@ -39,7 +39,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 			if (!bt_new)
 				return (NULL);
 			tmp->right = bt_new;
-			return (tmp->right = bt_new);
+			return (tmp->right);
 		}
 	}
 	return (NULL);
