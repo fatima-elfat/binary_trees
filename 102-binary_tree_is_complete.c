@@ -35,20 +35,20 @@ int  bt_levelorder(const binary_tree_t *tree, size_t level, size_t *a)
 		level--;
 		if (tree->left)
 		{
-			if (a == 1)
+			if (*a == 1)
 				return (0);
 			bt_levelorder(tree->left, level, a);
 		}
 		else
-			a = 1;
+			*a = 1;
 		if (tree->right)
 		{
-			if (a == 1)
+			if (*a == 1)
 				return (0);
 			bt_levelorder(tree->right, level, a);
 		}
 		else
-			a = 1;
+			*a = 1;
 	}
 	return (1);
 }
