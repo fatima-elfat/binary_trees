@@ -7,5 +7,16 @@
 */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-		
+	if (!tree)
+		return (0);
+	if (tree)
+	{
+		if (tree->left && tree->n <= tree->left->n)
+			return (0);
+		if (tree->right &&tree->n >= tree->right->n)
+			return (0);
+		binary_tree_is_bst(tree->left);
+		binary_tree_is_bst(tree->left);
+	}
+	return (1);
 }
