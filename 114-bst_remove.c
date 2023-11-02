@@ -41,7 +41,7 @@ bst_t *bst_remove_rec(bst_t *root, bst_t *curr)
 	while (curr->right->left != NULL)
 		curr->right = curr->right->left;
 	curr->n = curr->right->n;
-	return (bst_remove_rec(root, curr->n));
+	return (bst_remove_rec(root, curr->right));
 }
 /**
  * bst_recmove - removes a curr from a Binary Search Tree.
