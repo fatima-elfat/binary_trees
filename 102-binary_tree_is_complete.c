@@ -29,7 +29,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 int  bt_levelorder(const binary_tree_t *tree, size_t level, size_t *a)
 {
 	if (!tree)
-		return;
+		return (0);
 	else
 	{
 		level--;
