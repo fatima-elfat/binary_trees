@@ -21,7 +21,9 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 		tree->n = 0;
 		tree->right = NULL;
 	}
-	tree->n = tree->right->n;
-	tree->right = tree->right->right;
+	else{
+		tree->n = tree->right->n;
+		tree->right = tree->right->right;
+	}
 	return (tree);
 }
