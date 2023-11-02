@@ -12,9 +12,6 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 
 	if (!tree || !tree->right)
 		return (NULL);
-	bt_new = malloc(sizeof(binary_tree_t));
-	if (!bt_new)
-		return (NULL);
 	bt_new->parent = tree->right;
 	bt_new->n = tree->n;
 	bt_new->left = tree->left;
