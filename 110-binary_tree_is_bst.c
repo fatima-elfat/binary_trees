@@ -13,7 +13,7 @@ int bt_is_bst(const binary_tree_t *tree, int min, int max)
 		return (0);
 	if (tree)
 	{
-		if (tree >= max || tree <= min)
+		if (tree->n >= max || tree->n <= min)
 		bt_is_bst(tree->left, min, tree->n);
 		bt_is_bst(tree->right, tree->n, max);
 	}
