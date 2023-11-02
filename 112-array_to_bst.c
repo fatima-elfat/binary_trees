@@ -9,7 +9,7 @@
 bst_t *array_to_bst(int *array, size_t size)
 {
 	size_t i, j;
-	bst_t *bt_new, *tmp;
+	bst_t *bt_new;
 
 	if (!array)
 		return (NULL);
@@ -19,9 +19,7 @@ bst_t *array_to_bst(int *array, size_t size)
 		for (j = 0; j < i; j++)
 			if (array[i] == array[j])
 				break;
-		tmp = bst_insert(&bt_new, array[i]);
-		if (tmp)
-			return (NULL);
+		bst_insert(&bt_new, array[i]);
 	}
 	return (bt_new);
 }
