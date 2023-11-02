@@ -9,14 +9,15 @@
 */
 int bt_is_bst(const binary_tree_t *tree, int min, int max)
 {
-	if (!tree)
-		return (0);
+	int a, b;
+
 	if (tree)
 	{
 		if (tree->n >= max || tree->n <= min)
 			return (0);
-		return(bt_is_bst(tree->left, min, tree->n) && 
-		bt_is_bst(tree->right, tree->n, max));
+		a = bt_is_bst(tree->left, min, tree->n);
+		b = bt_is_bst(tree->right, tree->n, max);
+		return((a && b));
 	}
 	return (1);
 }
