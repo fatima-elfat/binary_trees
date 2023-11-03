@@ -16,7 +16,7 @@ avl_t *sa_to_avl(avl_t *node, int *array, int start, int finish)
 	if (start <= finish)
 	{
 		a = (start + finish) / 2;
-		a = ((start + finish) % 2 != 0) ? a : a - 1;
+		/*a = ((start + finish) % 2 != 0) ? a : a - 1;*/
 		aux = binary_tree_node((binary_tree_t *)node, array[a]);
 		if (!aux)
 			return (NULL);
@@ -42,5 +42,5 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	if (!array || !size)
 		return (NULL);
 	f = (int)(size);
-	return (sa_to_avl(NULL, array, 0, (f - 1)));          
+	return (sa_to_avl(NULL, array, 0, (f - 1)));
 }
