@@ -76,6 +76,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 int check_root(const binary_tree_t *tree)
 {
 	int a, b;
+
 	if (!tree)
 		return (1);
 	if (tree->n > tree->parent->n)
