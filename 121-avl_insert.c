@@ -33,14 +33,14 @@ avl_t *avl_insert_rec(avl_t **tree, int value, avl_t *parent,
 	if ((*tree)->n < value)
 	{
 		(*tree)->right = avl_insert_rec(&(*tree)->right,
-		value,*tree, avl_new);
+		value, *tree, avl_new);
 		if ((*tree)->right)
 			return (NULL);
 	}
 	else if ((*tree)->n > value)
 	{
 		(*tree)->left = avl_insert_rec(&(*tree)->left,
-		value,*tree, avl_new);
+		value, *tree, avl_new);
 		if (!(*tree)->left)
 			return (NULL);
 	}
